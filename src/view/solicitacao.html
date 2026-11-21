@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Solicitação de materiais | ConectaDoações</title>
+    <style>
+        :root {
+            font-family: system-ui, sans-serif;
+            color: #172b24;
+            background: #eef3ef;
+            line-height: 1.5;
+        }
+        * { box-sizing: border-box; }
+        [hidden] { display: none !important; }
+        body { margin: 0; }
+        header { background: #163a30; color: #fff; }
+        .marca, main { width: min(100% - 2rem, 48rem); margin-inline: auto; }
+        .marca { padding-block: 1rem; font-weight: 750; }
+        main { margin-block: clamp(1.25rem, 4vw, 3rem); }
+        h1 { margin: 0 0 1.25rem; font-size: clamp(1.65rem, 5vw, 2.5rem); line-height: 1.12; }
+        h2 { margin: 0 0 .75rem; font-size: 1.2rem; }
+        section {
+            margin-block: 1rem;
+            padding: clamp(1rem, 4vw, 1.6rem);
+            background: #fff;
+            border: 1px solid #cbd9cf;
+            border-radius: .8rem;
+        }
+        .entrada { display: grid; grid-template-columns: minmax(0, 1fr) 8rem auto; gap: .75rem; align-items: end; }
+        label { display: block; margin-bottom: .3rem; font-weight: 650; font-size: .9rem; }
+        select, input, button { font: inherit; border-radius: .4rem; min-height: 2.8rem; }
+        select, input { width: 100%; padding: .45rem .65rem; border: 1px solid #698276; color: inherit; background: #fff; }
+        select {
+            appearance: none;
+            padding-right: 2rem;
+            background: linear-gradient(45deg, transparent 50%, #334e44 50%) right 1.05rem center / .36rem .36rem no-repeat,
+                        linear-gradient(135deg, #334e44 50%, transparent 50%) right .69rem center / .36rem .36rem no-repeat #fff;
+        }
+        button { border: 1px solid #176242; background: #176242; color: #fff; padding: .45rem .9rem; font-weight: 650; cursor: pointer; }
+        button:hover { background: #10472f; }
+        .secundario { color: #176242; background: #fff; }
+        .secundario:hover { background: #eaf3ed; }
+        :focus-visible { outline: 3px solid #2077a5; outline-offset: 2px; }
+        .mensagem { padding: .65rem .9rem; border-radius: .4rem; }
+        .erro { color: #822c22; background: #fae8e4; }
+        .sucesso { color: #175438; background: #dcefe3; }
+        ul { margin: 0; padding: 0; list-style: none; }
+        li { display: flex; justify-content: space-between; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid #e1e9e3; }
+        .vazia { margin: 0; color: #4b6358; }
+        .acoes { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.25rem; }
+        @media (max-width: 33rem) {
+            .entrada { grid-template-columns: 1fr 7rem; }
+            .entrada button { grid-column: 1 / -1; justify-self: start; }
+        }
+        @media (max-width: 22rem) {
+            .entrada { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header><div class="marca">ConectaDoações</div></header>
+    <main>
+        <h1>Solicitação de materiais</h1>
+        <p class="mensagem erro" role="alert" {{erro-visivel}}>{{erro}}</p>
+        <p class="mensagem sucesso" role="status" {{confirmada}}>Solicitação confirmada.</p>
+
+        <section {{edicao}}>
+            <h2>Adicionar material</h2>
+            <form class="entrada" method="post" action="/">
+                <input type="hidden" name="acao" value="adicionar">
+                <div>
+                    <label for="material">Material</label>
+                    <select id="material" name="material" required>
+                        <option value="">Selecione</option>
+                        <option>Caderno</option>
+                        <option>Lápis</option>
+                        <option>Borracha</option>
+                        <option>Régua</option>
+                        <option>Caneta</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="quantidade">Quantidade</label>
+                    <input id="quantidade" name="quantidade" type="number" min="1" step="1" value="1" required>
+                </div>
+                <button type="submit">Adicionar</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Itens da solicitação</h2>
+            <p class="vazia" {{lista-vazia}}>Nenhum material adicionado.</p>
+            <ul>{{itens}}</ul>
+            <form class="acoes" method="post" action="/">
+                <button type="submit" name="acao" value="confirmar" {{edicao}}>Confirmar solicitação</button>
+                <button class="secundario" type="submit" name="acao" value="reiniciar">Nova solicitação</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

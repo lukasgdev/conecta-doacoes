@@ -10,3 +10,16 @@ categorias de doações.
 - Lukas Gomes da Silva
 - Allysson Matheus Paulo Ferreira
 - Abel Lucas Cavalcante de Melo
+
+## Solicitação de materiais (Teste)
+
+Para testar pelo navegador, abra o PowerShell na raiz do projeto e execute:
+
+```powershell
+.\iniciar.cmd
+```
+
+Acesse [localhost:8080](http://localhost:8080/) com o terminal aberto. Tente
+confirmar sem itens, depois adicione materiais e confirme de novo. Use
+**Nova solicitação** para recomeçar e **Ctrl+C** no terminal para encerrar.
+Os dados da demonstração ficam em memória enquanto o servidor local roda.
