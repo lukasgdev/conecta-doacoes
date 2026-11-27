@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro de doador | ConectaDoações</title>
+    <link rel="stylesheet" href="/conta.css">
+</head>
+<body>
+    <header><a href="/">ConectaDoações</a></header>
+    <main>
+        <h1>Cadastro de doador</h1>
+        <ul class="mensagem erro" role="alert" {{erros-visivel}}>{{erros}}</ul>
+        <form method="post" action="/cadastro">
+            <input type="hidden" name="token" value="{{token}}">
+            <label for="nome">Nome completo</label>
+            <input id="nome" name="nome" value="{{nome}}" autocomplete="name" maxlength="150" required>
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" value="{{email}}" autocomplete="email" maxlength="254" required>
+            <label for="telefone">Número de telefone com DDD</label>
+            <input type="tel" id="telefone" name="telefone" value="{{telefone}}" autocomplete="tel" maxlength="30" required>
+            <label for="endereco">Endereço</label>
+            <textarea id="endereco" name="endereco" autocomplete="street-address" rows="2" maxlength="300" required>{{endereco}}</textarea>
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" autocomplete="new-password"
+                   minlength="8" maxlength="128" aria-describedby="instrucao-senha" required>
+            <p id="instrucao-senha" class="instrucao">Use de 8 a 128 caracteres.</p>
+            <button type="submit">Criar conta</button>
+        </form>
+        <p>Já tem conta? <a href="/entrar">Entre com seu e-mail</a>.</p>
+    </main>
+</body>
+</html>

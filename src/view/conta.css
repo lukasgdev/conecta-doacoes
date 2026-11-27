@@ -1,0 +1,47 @@
+:root {
+    color: #172b24;
+    background: #eef3ef;
+    font: 100%/1.5 system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none; }
+body { margin: 0; }
+a { color: #175438; }
+header { padding: 1rem max(1rem, calc((100% - 48rem) / 2)); background: #163a30; }
+header a { color: #fff; font-weight: 750; text-decoration: none; }
+
+main {
+    width: min(100% - 2rem, 30rem);
+    margin: 2rem auto;
+    padding: clamp(1rem, 4vw, 2rem);
+    background: #fff;
+    border: 1px solid #cbd9cf;
+    border-radius: .8rem;
+}
+
+h1 { margin: 0 0 1rem; font-size: clamp(1.55rem, 4vw, 2rem); }
+label { display: block; margin: .75rem 0 .25rem; font-weight: 650; }
+input, select, textarea, button { font: inherit; border-radius: .4rem; }
+input, select, textarea { width: 100%; padding: .55rem .7rem; border: 1px solid #698276; }
+textarea { resize: vertical; }
+button {
+    margin-top: 1rem;
+    padding: .55rem 1rem;
+    border: 1px solid #176242;
+    color: #fff;
+    background: #176242;
+    font-weight: 650;
+    cursor: pointer;
+}
+
+button:hover { background: #10472f; }
+:focus-visible { outline: 3px solid #2077a5; outline-offset: 2px; }
+.instrucao { margin: .25rem 0 0; color: #4b6358; font-size: .9rem; }
+.mensagem { padding: .65rem .9rem; border-radius: .4rem; }
+ul.mensagem { padding-left: 2rem; }
+.erro { color: #822c22; background: #fae8e4; }
+.sucesso { color: #175438; background: #dcefe3; }
+
+.estoque { padding: 0; list-style: none; }
+.estoque li { display: flex; justify-content: space-between; padding: .5rem 0; border-bottom: 1px solid #cbd9cf; }

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Entrar | ConectaDoações</title>
+    <link rel="stylesheet" href="/conta.css">
+</head>
+<body>
+    <header><a href="/">ConectaDoações</a></header>
+    <main>
+        <h1>Entrar como doador</h1>
+        <p class="mensagem sucesso" role="status" {{aviso-visivel}}>{{aviso}}</p>
+        <p class="mensagem erro" role="alert" {{erro-visivel}}>{{erro}}</p>
+        <form method="post" action="/entrar">
+            <input type="hidden" name="token" value="{{token}}">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" value="{{email}}" autocomplete="username" maxlength="254" required>
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" autocomplete="current-password" maxlength="128" required>
+            <button type="submit">Entrar</button>
+        </form>
+        <p>Primeiro acesso? <a href="/cadastro">Crie sua conta</a>.</p>
+    </main>
+</body>
+</html>
