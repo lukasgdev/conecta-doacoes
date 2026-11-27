@@ -20,16 +20,16 @@ public final class Solicitacao {
 
     public void confirmar() {
         if (itens.isEmpty()) {
-            throw new SolicitacaoVaziaException();
+            throw new ExcecaoSolicitacaoVazia();
         }
         confirmada = true;
     }
 
-    public boolean isConfirmada() {
+    public boolean estaConfirmada() {
         return confirmada;
     }
 
-    public List<ItemSolicitacao> getItens() {
+    public List<ItemSolicitacao> itens() {
         return List.copyOf(itens);
     }
 }

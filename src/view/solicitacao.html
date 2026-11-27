@@ -16,7 +16,8 @@
         body { margin: 0; }
         header { background: #163a30; color: #fff; }
         .marca, main { width: min(100% - 2rem, 48rem); margin-inline: auto; }
-        .marca { padding-block: 1rem; font-weight: 750; }
+        .marca { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem; padding-block: 1rem; font-weight: 750; }
+        .marca a { color: inherit; }
         main { margin-block: clamp(1.25rem, 4vw, 3rem); }
         h1 { margin: 0 0 1.25rem; font-size: clamp(1.65rem, 5vw, 2.5rem); line-height: 1.12; }
         h2 { margin: 0 0 .75rem; font-size: 1.2rem; }
@@ -59,7 +60,12 @@
     </style>
 </head>
 <body>
-    <header><div class="marca">ConectaDoações</div></header>
+    <header>
+        <div class="marca">
+            <span>ConectaDoações</span>
+            <a href="/entrar">Acesso do doador</a>
+        </div>
+    </header>
     <main>
         <h1>Solicitação de materiais</h1>
         <p class="mensagem erro" role="alert" {{erro-visivel}}>{{erro}}</p>
@@ -73,11 +79,7 @@
                     <label for="material">Material</label>
                     <select id="material" name="material" required>
                         <option value="">Selecione</option>
-                        <option>Caderno</option>
-                        <option>Lápis</option>
-                        <option>Borracha</option>
-                        <option>Régua</option>
-                        <option>Caneta</option>
+                        {{materiais}}
                     </select>
                 </div>
                 <div>

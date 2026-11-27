@@ -15,11 +15,11 @@ public final class ItemSolicitacao {
         this.quantidade = quantidade;
     }
 
-    public String getMaterial() {
+    public String material() {
         return material;
     }
 
-    public int getQuantidade() {
+    public int quantidade() {
         return quantidade;
     }
 }

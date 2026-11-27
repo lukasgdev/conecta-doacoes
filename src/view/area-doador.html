@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Área do doador | ConectaDoações</title>
+    <link rel="stylesheet" href="/conta.css">
+</head>
+<body>
+    <header><a href="/">ConectaDoações</a></header>
+    <main>
+        <h1>Área do doador</h1>
+        <p>Olá, {{nome}}.</p>
+        <section aria-labelledby="titulo-estoque">
+            <h2 id="titulo-estoque">Meu estoque de materiais</h2>
+            <p class="mensagem sucesso" role="status" {{aviso-visivel}}>{{aviso}}</p>
+            <p class="mensagem erro" role="alert" {{erro-visivel}}>{{erro}}</p>
+            <form method="post" action="/area-doador">
+                <input type="hidden" name="token" value="{{token}}">
+                <label for="material">Material</label>
+                <select id="material" name="material" required>
+                    <option value="">Selecione</option>
+                    {{materiais}}
+                </select>
+                <label for="quantidade">Quantidade a adicionar</label>
+                <input id="quantidade" name="quantidade" type="number" min="1" max="2147483647" step="1" value="1" required>
+                <button type="submit">Adicionar ao estoque</button>
+            </form>
+            <h3>Materiais no estoque</h3>
+            <p {{estoque-vazio}}>Você ainda não adicionou materiais.</p>
+            <ul class="estoque">{{itens}}</ul>
+        </section>
+        <form method="post" action="/sair">
+            <input type="hidden" name="token" value="{{token}}">
+            <button type="submit">Sair da conta</button>
+        </form>
+    </main>
+</body>
+</html>
